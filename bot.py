@@ -1,12 +1,10 @@
-import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-TOKEN = os.environ.get("8965142877:AAGQGJpCsZVsPt5zqoet3tR1ztIIqQlzZVE")
+TOKEN = "8965142877:AAGQGJpCsZVsPt5zqoet3tR1ztIIqQlzZVE"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = (
-        "✅ Your exclusive Stake bonus is waiting!
+    await update.message.reply_text("""✅ Your exclusive Stake bonus is waiting!
 
 
 ⚡ WHAT YOU GET
@@ -30,9 +28,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 until the bonus is applied to your account
 
 
-🔗 https://stake.com/?c=sketchy&offer=sketchy"  # ← ЗАМЕНИ ЭТО НА СВОЁ СООБЩЕНИЕ
-    )
-    await update.message.reply_text(text)
+🔗 https://stake.com/?c=sketchy&offer=sketchy""")
 
 app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
